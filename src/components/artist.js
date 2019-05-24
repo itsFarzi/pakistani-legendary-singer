@@ -2,29 +2,18 @@ import React, { Component } from 'react';
 import Header from './header' ;
 import AlbumList from './albumList'
 
-const URL = ' http://localhost:3005/artists'
+import {URL} from '../json'
 
 
 class Artist extends Component {
     constructor(props){
         super(props);
         this.state={
-            artist : ''
+            artist : URL.artists[this.props.match.params.artistId]
         }
+            console.log(URL.artists[1]);
+        
     }
-    componentDidMount(){
-       // console.log(this.props.match.params.artistId)
-       fetch( `${URL}/${this.props.match.params.artistId}`, {
-        method  : 'GEt'
-    })
-    .then( response => response.json() )
-    .then( json =>{
-       this.setState({
-           artist : json
-       })
-    })
-    }
-
    
     render() {
         const style ={

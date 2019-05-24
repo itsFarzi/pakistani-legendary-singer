@@ -1,26 +1,14 @@
 import React, { Component } from 'react';
 import Banner from './banner' ;
-import Artist from './artistList'
-
-const URL = "http://localhost:3005/artists"
+import Artist from './artistList';
+import {URL} from '../json'
 
 class Home extends Component {
     constructor(props){
         super(props);
         this.state={
-            artist : ''
+            artist : URL
         }
-    }
-    componentDidMount(){
-        fetch(URL , {
-            method  : 'GEt'
-        })
-        .then( response => response.json() )
-        .then( json =>{
-           this.setState({
-               artist : json
-           })
-        })
     }
     render() {
         return (
